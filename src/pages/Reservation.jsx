@@ -7,6 +7,11 @@ import { supabase } from '../lib/supabase'
 // updated by the admin panel. Options: 'open' | 'limited' | 'full'.
 const RESTAURANT_STATUS = 'open'
 
+// Make.com webhook — triggers the confirmation email, admin notification
+// email, and Google Sheets row append. See the Make.com scenario for
+// "The Sem Reservations".
+const MAKE_WEBHOOK_URL = 'https://hook.eu1.make.com/ffnenkxnuu7czxspu90iicj995gcvhsd'
+
 const STATUS_CONFIG = {
   open: {
     label: 'Open for Reservations',
@@ -68,8 +73,29 @@ export default function Reservation() {
       return
     }
 
-    // Email confirmation + Google Sheets sync happen via a Supabase Edge
-    // Function (see SUPABASE_SETUP.md, sections 3 & 4) — not yet connected.
+    // Notify Make.com so it can send the confirmation/notification emails
+    // and append a row to Google Sheets. The reservation is already saved
+    // in Supabase at this point, so a webhook hiccup here is logged but
+    // never blocks the guest from seeing their booking confirmed.
+    try {
+      await fetch(MAKE_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          full_name: form.fullName,
+          phone: form.phone,
+          email: form.email,
+          guests: Number(form.guests),
+          date: form.date,
+          time: form.time,
+          special_requests: form.requests || '',
+          submitted_at: new Date().toISOString(),
+        }),
+      })
+    } catch (webhookError) {
+      console.error('Make.com webhook failed:', webhookError)
+    }
+
     setSubmitted(true)
   }
 
