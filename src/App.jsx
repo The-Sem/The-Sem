@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import FloatingSocial from './components/FloatingSocial'
 import RequireAdmin from './components/RequireAdmin'
+import ScrollToTop from './components/ScrollToTop'
 
 import Home from './pages/Home'
 import Menu from './pages/Menu'
@@ -30,45 +31,50 @@ function SiteLayout({ children }) {
 
 export default function App() {
   return (
-    <Routes>
-      {/* Admin routes — no public navbar/footer */}
-      <Route path="/admin" element={<AdminLogin />} />
-      <Route
-        path="/admin/dashboard"
-        element={
-          <RequireAdmin>
-            <AdminDashboard />
-          </RequireAdmin>
-        }
-      />
+    <>
+      {/* Resets scroll to top on every route change */}
+      <ScrollToTop />
 
-      {/* Public site */}
-      <Route path="/" element={<SiteLayout><Home /></SiteLayout>} />
-      <Route path="/menu" element={<SiteLayout><Menu /></SiteLayout>} />
-      <Route
-        path="/craft-your-cocktail"
-        element={<SiteLayout><CraftCocktail /></SiteLayout>}
-      />
-      <Route path="/gallery" element={<SiteLayout><Gallery /></SiteLayout>} />
-      <Route path="/reviews" element={<SiteLayout><Reviews /></SiteLayout>} />
-      <Route path="/reservation" element={<SiteLayout><Reservation /></SiteLayout>} />
-      <Route path="/contact" element={<SiteLayout><Contact /></SiteLayout>} />
-      <Route
-        path="/founders/:slug"
-        element={<SiteLayout><FounderPage /></SiteLayout>}
-      />
+      <Routes>
+        {/* Admin routes — no public navbar/footer */}
+        <Route path="/admin" element={<AdminLogin />} />
+        <Route
+          path="/admin/dashboard"
+          element={
+            <RequireAdmin>
+              <AdminDashboard />
+            </RequireAdmin>
+          }
+        />
 
-      <Route
-        path="*"
-        element={
-          <SiteLayout>
-            <Placeholder
-              title="Page Not Found"
-              description="The page you're looking for doesn't exist."
-            />
-          </SiteLayout>
-        }
-      />
-    </Routes>
+        {/* Public site */}
+        <Route path="/" element={<SiteLayout><Home /></SiteLayout>} />
+        <Route path="/menu" element={<SiteLayout><Menu /></SiteLayout>} />
+        <Route
+          path="/craft-your-cocktail"
+          element={<SiteLayout><CraftCocktail /></SiteLayout>}
+        />
+        <Route path="/gallery" element={<SiteLayout><Gallery /></SiteLayout>} />
+        <Route path="/reviews" element={<SiteLayout><Reviews /></SiteLayout>} />
+        <Route path="/reservation" element={<SiteLayout><Reservation /></SiteLayout>} />
+        <Route path="/contact" element={<SiteLayout><Contact /></SiteLayout>} />
+        <Route
+          path="/founders/:slug"
+          element={<SiteLayout><FounderPage /></SiteLayout>}
+        />
+
+        <Route
+          path="*"
+          element={
+            <SiteLayout>
+              <Placeholder
+                title="Page Not Found"
+                description="The page you're looking for doesn't exist."
+              />
+            </SiteLayout>
+          }
+        />
+      </Routes>
+    </>
   )
 }
