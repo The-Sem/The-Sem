@@ -3,9 +3,9 @@ import useInView from '../hooks/useInView'
 
 // Editable values — surfaced from Supabase "contact_information" via the admin panel.
 export const CONTACT = {
-  phone: '+91 90461 57720',
-  phoneRaw: '919046157720',
-  whatsapp: '919046157720',
+  phone: '+91 90469 15772',
+  phoneRaw: '919046915772',
+  whatsapp: '919046915772',
   email: 'thesem63@gmail.com',
   address: 'Near Central Bank of India, Ranipool, Gangtok, Sikkim 737135',
   mapsEmbedSrc:

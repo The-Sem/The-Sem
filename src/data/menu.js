@@ -1,10 +1,12 @@
 // Simplified menu data for The Sem.
 // Signature cocktails get full cards (image, description, taste tags).
 // Classic cocktails are listed by name only — same flat price, customizable.
-// Snacks are the fusion small-plates menu.
+// Snacks are the fusion small-plates menu, now using real dish photos.
 
 const img = (id) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=800&q=80`
+
+const snackImg = (filename) => `/images/snacks/${filename}`
 
 export const COCKTAIL_PRICE = 419
 
@@ -73,65 +75,65 @@ export const SNACKS = [
     name: 'Onion & Saag Fritters',
     description:
       'Onion and saag fritter tossed with chaat masala, served with three different chutneys and a beet tuile.',
-    image: img('1632778149955-e80f8ceca2e8'),
+    image: snackImg('onion-saag-fritters.jpg'),
   },
   {
     id: 'soft-pocket',
     name: 'Soft Pocket',
     description:
       'House-made soft steamed bun, dalle spread, spiced potato wedges or spiced chicken, pickled cucumber and coleslaw.',
-    image: img('1568901346375-23c9450c58cd'),
+    image: snackImg('soft-pocket.jpg'),
   },
   {
     id: 'mirchi-paneer',
     name: 'Mirchi Paneer',
     description: 'Peanut and coriander marinated paneer, bell pepper, onion, and tamarind chutney.',
-    image: img('1631452180519-c014fe946bc7'),
+    image: snackImg('mirchi-paneer.jpg'),
   },
   {
     id: 'potato-poopers',
     name: 'Potato Poopers',
     description: 'Crispy potato cheeseball, tomato sauce, The Sem spice blend, mayo and ketchup.',
-    image: img('1573080496219-bb080dd4f877'),
+    image: snackImg('potato-poopers.jpg'),
   },
   {
     id: 'finger-chicken',
     name: 'Finger Chicken',
     description:
       'Crispy marinated chicken fried golden, dusted with in-house masala, served with beetroot radish and mayo dip.',
-    image: img('1562967914-608f82629710'),
+    image: snackImg('finger-chicken.jpg'),
   },
   {
     id: 'pickled-pork-trotters',
     name: 'Pickled Pork Trotters',
     description: 'Spiced pork trotters in Nepali-style pickle spices — spicy and soulful.',
-    image: img('1544025162-d76694265947'),
+    image: snackImg('pickled-pork-trotters.jpg'),
   },
   {
     id: 'pork-guma',
     name: 'Pork Guma',
     description: 'Stir-fried traditional pork sausage seasoned with Himalayan spice.',
-    image: img('1544025162-d76694265947'),
+    image: snackImg('pork-guma.jpg'),
   },
   {
     id: 'empanadas',
     name: 'Empanadas',
     description: 'Crispy rolls filled with juicy pork, sour cream, salsa, and fresh churpi.',
-    image: img('1551782450-a2132b4ba21d'),
+    image: snackImg('empanadas.jpg'),
   },
   {
     id: 'bhutuwa',
     name: 'Bhutuwa',
     description:
       'Offal cooked in a rich, authentic spice blend, served with a steamed bun on the side. Mutton or chicken.',
-    image: img('1606728035253-49e8a23146de'),
+    image: snackImg('bhutuwa.jpg'),
   },
   {
     id: 'momo',
     name: 'Momo',
     description:
       'Juicy traditional steamed momo, tomato chutney, mula ko achar. Paneer, chicken, or pork.',
-    image: img('1496116218417-1a781b1c416c'),
+    image: snackImg('momo.jpg'),
   },
   {
     id: 'pasta',
@@ -150,12 +152,12 @@ export const SNACKS = [
     id: 'jeera-rice',
     name: 'Jeera Rice',
     description: 'Aromatic basmati rice with toasted cumin seeds and fresh cilantro.',
-    image: img('1596797038530-2c107229654b'),
+    image: snackImg('jeera-rice.jpg'),
   },
   {
     id: 'fried-rice',
     name: 'Fried Rice',
     description: 'Rice tossed with veggies or chicken, topped with a sunny side up. Veg or chicken.',
-    image: img('1603133872878-684f208fb84b'),
+    image: snackImg('fried-rice.jpg'),
   },
 ]
