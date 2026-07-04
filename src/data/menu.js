@@ -7,6 +7,7 @@ const img = (id) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=800&q=80`
 
 const snackImg = (filename) => `/images/snacks/${filename}`
+const cocktailImg = (filename) => `/images/cocktails/${filename}`
 
 export const COCKTAIL_PRICE = 419
 
@@ -14,7 +15,7 @@ export const SIGNATURE_COCKTAILS = [
   {
     id: 'zesty-ex',
     name: 'The Zesty Ex',
-    image: img('1551538827-9c037cb4f32a'),
+    image: cocktailImg('zesty-ex.png'),
     description:
       'Bourbon whiskey, citrus cordial, cinnamon tincture, and a Darjeeling tea foam.',
     tasteTags: ['Citrusy', 'Bold'],
@@ -22,7 +23,7 @@ export const SIGNATURE_COCKTAILS = [
   {
     id: 'salty-sassy',
     name: 'Salty & Sassy',
-    image: img('1514362545857-3bc16c4c7d1b'),
+    image: cocktailImg('salty-sassy.png'),
     description:
       'Tequila and mango, spiced salt, pickled mango, honey cordial, and clarified milk.',
     tasteTags: ['Spicy', 'Sweet'],
@@ -30,7 +31,7 @@ export const SIGNATURE_COCKTAILS = [
   {
     id: 'bitter-truth',
     name: 'Bitter Truth',
-    image: img('1470337458703-46ad1756a187'),
+    image: cocktailImg('bitter-truth.png'),
     description:
       'Gin, a citrus oil drop, spiced vermouth, bittergourd tincture, and stoneflower vermouth.',
     tasteTags: ['Bitter', 'Herbal'],
@@ -38,14 +39,14 @@ export const SIGNATURE_COCKTAILS = [
   {
     id: 'sugar-rush',
     name: 'Sugar Rush',
-    image: img('1578664182399-5e88a5e1e8b1'),
+    image: cocktailImg('sugar-rush.png'),
     description: 'Vodka, waffer, cold brew, cream, and chocolate syrup.',
     tasteTags: ['Sweet', 'Creamy'],
   },
   {
     id: 'secret-flavour',
     name: 'Secret Flavour',
-    image: img('1551024506-0bccd828d307'),
+    image: cocktailImg('secret-flavour.png'),
     description:
       'White rum, tomato & chilli, saline, citrus honey, and coriander, finished with a crunchy garnish.',
     tasteTags: ['Spicy', 'Umami', 'Citrusy'],
@@ -70,6 +71,27 @@ export const CLASSIC_COCKTAILS = [
 ]
 
 export const SNACKS = [
+  {
+    id: 'chicken-wings',
+    name: 'Chicken Wings',
+    description:
+      'Crispy fried chicken wings glazed in a rich, sticky chilli-soy sauce, topped with sesame seeds — bold, saucy, and impossible to stop at one.',
+    image: snackImg('chicken-wings.png'),
+  },
+  {
+    id: 'potato-wedges',
+    name: 'Potato Wedges',
+    description:
+      'Thick-cut golden potato wedges seasoned with The Sem spice blend, served with a smoky chipotle dip.',
+    image: img('1630384060520-56a98a31cb56'),
+  },
+  {
+    id: 'dry-ramen-bowl',
+    name: 'Dry Ramen Bowl',
+    description:
+      'Springy ramen noodles tossed in a bold chilli-garlic sauce, topped with two chicken lollipops and a sunny-side-up egg.',
+    image: img('1569718212165-3a8278d5f624'),
+  },
   {
     id: 'onion-saag-fritters',
     name: 'Onion & Saag Fritters',
