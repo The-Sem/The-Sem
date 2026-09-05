@@ -5,6 +5,7 @@ import { MOODS, SPIRITS, MOUTHFEELS } from '../data/cocktailOptions'
 import { BUILDER_COCKTAILS } from '../data/builderCocktails'
 import { COCKTAIL_PRICE } from '../data/menu'
 import CitrusDivider from '../components/CitrusDivider'
+import { scrollToTopInstant } from '../components/ScrollToTop'
 
 const SPIRIT_ICONS = {
   Vodka: Martini,
@@ -58,6 +59,14 @@ export default function CraftCocktail() {
       setFavorites([])
     }
   }, [])
+
+  // This quiz stays on one route (/craft-your-cocktail) across all 4 steps,
+  // so the router's own ScrollToTop (which only fires on route changes)
+  // never sees it move. Scroll to top explicitly whenever the step changes
+  // — covers Next, Back, and landing on the final "Discover" result.
+  useEffect(() => {
+    scrollToTopInstant()
+  }, [step])
 
   const toggleFavorite = (id) => {
     setFavorites((prev) => {
